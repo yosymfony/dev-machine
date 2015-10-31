@@ -1,0 +1,13 @@
+---
+# application tasks to be customized and to run after the main provision
+- name: Installing PHPUnit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
+
+- name: Installing PHP-CS fixer
+  get_url: url=http://get.sensiolabs.org/php-cs-fixer.phar dest=/usr/local/bin/php-cs-fixer mode=555
+
+- name: Installing Phing
+  get_url: url=http://www.phing.info/get/phing-latest.phar dest=/usr/local/bin/phing mode=555
+
+- name: Installing RedHat tools (OpenShift)
+  gem: name=rhc state=latest
