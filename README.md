@@ -2,7 +2,7 @@ Yo! Symfony dev machine
 -----------------------
 * OS: Ubuntu Trusty 32 bits.
 * Hostname: yosymfony-dev (http://192.168.33.99/).
-* Shared folter (NFS) inside VM: `/vagrant`.
+* Shared folder (NFS) inside VM: `/vagrant`.
 
 ## Require
 
