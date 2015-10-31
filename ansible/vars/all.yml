@@ -29,7 +29,7 @@ xdebug:
 composer:
     install: '1'
 blackfire:
-    install: '1'
-    server_id: ebee0756-c79c-4c2b-af32-26d8d4330c60
-    server_token: f4be507aca19ca244a3bdbaec1932a28ad22cc094d31a8a60f5dc6cd93862579
+    install: '0'
+    server_id:
+    server_token:
 
