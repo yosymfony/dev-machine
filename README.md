@@ -24,3 +24,8 @@ Yo! Symfony dev machine
 * PHPUnit.
 * PHP-CS fixer.
 * NodeJS.
+
+## How to use?
+* Clone this repository: `git clone https://github.com/yosymfony/Dev-machine.git`.
+* `cd Dev-machine/`
+* `vagrant up`
