@@ -11,7 +11,7 @@ Yo! Symfony dev machine
 
 ## Server
 
-* PHP 5.6 (php5-cli, php5-intl, php5-mcrypt)
+* PHP 5.6 (php5-cli, php5-intl, php5-mcrypt, php5-curl)
 * Xdebug.
 * Blackfire.
 * MariaDB.
