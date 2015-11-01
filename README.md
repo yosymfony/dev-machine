@@ -26,6 +26,6 @@ Yo! Symfony dev machine
 * NodeJS.
 
 ## How to use?
-* Clone this repository: `git clone https://github.com/yosymfony/Dev-machine.git`.
+* Clone this repository: `git clone https://github.com/yosymfony/Dev-machine.git`
 * `cd Dev-machine/`
 * `vagrant up`
