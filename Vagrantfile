@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
         ]
     end
 
-    config.vm.box = "ubuntu/trusty32"
+    config.vm.box = "ubuntu/trusty64"
     
     config.vm.network :private_network, ip: "192.168.33.99"
     config.ssh.forward_agent = true
@@ -52,5 +52,5 @@ Vagrant.configure("2") do |config|
         config.vm.provision :shell, path: "ansible/windows.sh", args: ["yosymfony-dev"]
     end
 
-    config.vm.synced_folder "./", "/vagrant", type: "nfs"
+    config.vm.synced_folder "./", "/vagrant"
 end

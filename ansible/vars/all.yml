@@ -6,30 +6,32 @@ server:
     locale: es_ES.UTF-8
 vagrant_local:
     install: '1'
-    vm: { base_box: trusty32, hostname: yosymfony-dev, ip: 192.168.33.99, memory: '512', sharedfolder: ./, useVagrantCloud: '1', syncType: nfs }
+    vm: { base_box: trusty64, hostname: yosymfony-dev, ip: 192.168.33.99, memory: '512', sharedfolder: ./, useVagrantCloud: '1', syncType: '0' }
 nginx:
     install: '1'
-    docroot: /www
+    docroot: /var/www
     servername: yosymfony.dev
 mariadb:
     install: '1'
     root_password: '123'
     database: db
-    user: user
-    password: password
+    user: yosymfonydb
+    password: '123456'
     dump: ''
+mongodb:
+    install: '1'
 sqlite:
     install: '1'
 php:
     install: '1'
     ppa: php5-5.6
-    packages: [php5-cli, php5-intl, php5-mcrypt, php5-curl, php5-mysql, php5-sqlite]
+    packages: [php5-cli, php5-intl, php5-mcrypt, php5-curl, php5-mysql, php5-sqlite, php5-mongo]
 xdebug:
     install: '1'
 composer:
     install: '1'
 blackfire:
-    install: '0'
-    server_id:
-    server_token:
+    install: '1'
+    server_id: ''
+    server_token: ''
 

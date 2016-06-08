@@ -8,6 +8,7 @@
     - vagrant_local
     - nginx
     - mariadb
+    - mongodb
     - sqlite
     - php
     - xdebug
