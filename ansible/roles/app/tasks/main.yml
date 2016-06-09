@@ -12,9 +12,14 @@
 - name: Clone Git Subsplit repo
   git: repo=https://github.com/dflydev/git-subsplit.git dest=/tmp/git-subsplit
 
+- name: Stat Git Subsplit install.sh
+  stat: path=/tmp/git-subsplit/install.sh
+  register: git_subsplif_install
+
 - name: Install Git Subsplit
   sudo: yes
   shell: /tmp/git-subsplit/install.sh
+  when: git_subsplif_install.exists
 
 - name: Install PHP Git Hooks
   git: repo=https://github.com/intaro/php-git-hooks.git dest=/vagrant/infrastructure/php-git-hooks
@@ -22,15 +27,30 @@
 - name: Download Box project
   get_url: url=https://box-project.github.io/box2/installer.php dest=/tmp
 
+- name: Stat Box project
+  stat: path=/tmp/installer.php
+  register: box_install
+
 - name: Build Box application
   shell: php /tmp/installer.php
+  when: box_install.exists
+
+- name: Stat box.phar
+  stat: path=/tmp/box.phar
+  register: box_phar
 
 - name: Move Box application
   copy: src=/tmp/box.phar dest=/usr/local/bin/box.phar mode=555
+  when: box_phar.exists
+
+- name: Stat general box.phar
+  stat: path=/usr/local/bin/box.phar
+  register: usr_box_phar
 
 - name: Rename Box application
   sudo: yes
   shell: mv /usr/local/bin/box.phar /usr/local/bin/box
+  when: usr_box_phar.exists
 
 - name: More User Friendly List Aliases
   lineinfile:
