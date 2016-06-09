@@ -19,6 +19,19 @@
 - name: Install PHP Git Hooks
   git: repo=https://github.com/intaro/php-git-hooks.git dest=/vagrant/infrastructure/php-git-hooks
 
+- name: Download Box project
+  get_url: url=https://box-project.github.io/box2/installer.php dest=/tmp
+
+- name: Build Box application
+  shell: php /tmp/installer.php
+
+- name: Move Box application
+  copy: src=/tmp/box.phar dest=/usr/local/bin/box.phar mode=555
+
+- name: Rename Box application
+  sudo: yes
+  shell: mv /usr/local/bin/box.phar /usr/local/bin/box
+
 - name: More User Friendly List Aliases
   lineinfile:
     dest: ~{{ console_user | default(ansible_ssh_user) }}/.bashrc
