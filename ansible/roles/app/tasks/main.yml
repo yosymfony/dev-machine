@@ -20,7 +20,7 @@
 
 - name: Configure more user friendly list of aliases
   lineinfile:
-    dest: ~{{ console_user | default(ansible_ssh_user) }}/.bashrc
+    dest: ~{{ console_user | default(ansible_user) }}/.bashrc
     line: "alias {{ item.alias }}='{{ item.command }}'"
     regexp: "^alias {{ item.alias }}="
     state: present
