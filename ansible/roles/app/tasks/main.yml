@@ -18,14 +18,10 @@
 - name: Clone Git Subsplit repo
   git: repo=https://github.com/dflydev/git-subsplit.git dest=/vagrant/infrastructure/git-subsplit
 
-- name: Configure more user friendly list of aliases
+- name: Configure extra aliases
   lineinfile:
-    dest: ~{{ console_user | default(ansible_user) }}/.bashrc
-    line: "alias {{ item.alias }}='{{ item.command }}'"
-    regexp: "^alias {{ item.alias }}="
-    state: present
+    dest: ~/.bashrc
+    line: "{{ item }}"
+    create: yes
   with_items:
-    - { alias: ll, command: "ls -lFh" }
-    - { alias: la, command: "ls -lFhA" }
-    - { alias: l,  command: "ls -CF" }
-    - { alias: ..., command: "cd .."}
+    - alias ..='cd ..'
