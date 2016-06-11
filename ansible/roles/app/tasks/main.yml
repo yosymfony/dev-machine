@@ -18,10 +18,13 @@
 - name: Clone Git Subsplit repo
   git: repo=https://github.com/dflydev/git-subsplit.git dest=/vagrant/infrastructure/git-subsplit
 
-- name: Configure extra aliases
-  lineinfile:
-    dest: ~/.bashrc
-    line: "{{ item }}"
-    create: yes
+- lineinfile: dest=~/.bash_aliases line="{{ item }}" create=yes
   with_items:
     - alias ..='cd ..'
+    - alias gs='git status'
+    - alias gc='git commit'
+    - alias gaa='git add -A'
+    - alias gl='git log'
+
+    - alias t='cd /tmp'
+    - alias www='cd /var/www'
