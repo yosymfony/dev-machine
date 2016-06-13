@@ -36,8 +36,11 @@
     dest=/home/vagrant/.bash_aliases
     owner=vagrant group=vagrant mode=0644
 
-- name: Create Bash alias file
+- name: Create global gitignore file
   template:
     src=.gitignore_global.tpl
     dest=/home/vagrant/.gitignore_global
     owner=vagrant group=vagrant mode=0644
+
+- name: Configure global gitignore
+  shell: git config --global core.excludesfile /home/vagrant/.gitignore_global
