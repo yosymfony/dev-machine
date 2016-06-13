@@ -18,14 +18,26 @@
 - name: Clone Git Subsplit repo
   git: repo=https://github.com/dflydev/git-subsplit.git dest=/vagrant/infrastructure/git-subsplit
 
-- name: Create Bash alias
-  lineinfile: dest=/home/vagrant/.bash_aliases line="{{ item }}" create=yes
-  with_items:
-   - alias ..='cd ..'
-   - alias gs='git status'
-   - alias gc='git commit'
-   - alias gaa='git add -A'
-   - alias gl='git log'
+- name: Create Git prompt Bash script
+  template:
+    src=.git-prompt.sh.tpl
+    dest=/home/vagrant/.git-prompt.sh
+    owner=vagrant group=vagrant mode=0644
 
-   - alias t='cd /tmp'
-   - alias www='cd /var/www'
+- name: Create Bash configuration file
+  template:
+    src=.bashrc.tpl
+    dest=/home/vagrant/.bashrc
+    owner=vagrant group=vagrant mode=0644
+
+- name: Create Bash alias file
+  template:
+    src=.bash_aliases.tpl
+    dest=/home/vagrant/.bash_aliases
+    owner=vagrant group=vagrant mode=0644
+
+- name: Create Bash alias file
+  template:
+    src=.gitignore_global.tpl
+    dest=/home/vagrant/.gitignore_global
+    owner=vagrant group=vagrant mode=0644
