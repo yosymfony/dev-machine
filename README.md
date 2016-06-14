@@ -4,12 +4,17 @@ Yo! Symfony dev machine
 * Hostname: yosymfony-dev (http://192.168.33.99/).
 * Shared folder (Vbox default) inside VM: `/vagrant`.
 
-This VM has been created using [Phansible](http://phansible.com/).
+This VM runs on any Linux, Mac or Windows system and has been
+created using [Phansible](http://phansible.com/).
 
 ## Require
 
 * VirtualBox >= 4.3.x
 * Vagrant >= 1.7.4
+
+**Note**: If you are using Windows, you may need to enable hardware virtualization (VT-x).
+It can usually be enabled via your BIOS. If you are using Hyper-V on a UEFI system you
+may additionally need to disable Hyper-V in order to access VT-x.
 
 ## Included software
 
