@@ -41,6 +41,6 @@ $ cd Dev-machine/
 $ vagrant up
 ```
 
-## Bash aliases
-
-Bash aliases used for provisioning the VM are detailed at `./ansible/roles/tasks/templates/.bash_aliases.tpl`.
+## dotfiles
+This VM contains a set of predefined dotfiles (`.bash_aliases`, `.bashrc` and `.gitconfig`)
+that will be copied during initial startup. They are located at `./ansible/roles/tasks/templates/`.
