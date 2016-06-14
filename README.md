@@ -11,7 +11,7 @@ This VM has been created using [Phansible](http://phansible.com/).
 * VirtualBox >= 4.3.x
 * Vagrant >= 1.7.4
 
-## Server
+## Included software
 
 * PHP 5.6 (php5-cli, php5-intl, php5-mcrypt, php5-curl)
 * Xdebug.
@@ -19,23 +19,23 @@ This VM has been created using [Phansible](http://phansible.com/).
 * MongoDB.
 * MariaDB.
 * Sqlite.
-* NodeJS.
-
-### Packages
-
+* NodeJS with NPM.
 * [Git](https://git-scm.com/) 1.9.1
 * [Composer](https://getcomposer.org/).
 * [PHPUnit](https://phpunit.de/).
 * [PHP-CS fixer](http://cs.sensiolabs.org/).
 * [Phing](https://www.phing.info/).
 * [Git Subsplit](https://github.com/dflydev/git-subsplit).
-* [PHP Git Hooks](https://github.com/intaro/php-git-hooks.git dest=/vagrant/infrastructure/php-git-hooks).
-* [NPM](https://www.npmjs.com/) (package manager for Javascript).
+* [PHP Git Hooks](https://github.com/intaro/php-git-hooks.git) cloned at `/vagrant/infrastructure/php-git-hooks`.
 
-## How to use?
+## How to install the VM?
 
 ```bash
 $ git clone https://github.com/yosymfony/Dev-machine.git
 $ cd Dev-machine/
 $ vagrant up
 ```
+
+## Bash aliases
+
+Bash aliases used for provisioning the VM are detailed at `./ansible/roles/tasks/templates/.bash_aliases.tpl`.
