@@ -30,7 +30,7 @@ may additionally need to disable Hyper-V in order to access VT-x.
 * [PHPUnit](https://phpunit.de/).
 * [PHP-CS fixer](http://cs.sensiolabs.org/).
 * [Phing](https://www.phing.info/).
-* [Git Subsplit](https://github.com/dflydev/git-subsplit).
+* [Git Subsplit](https://github.com/dflydev/git-subsplit) cloned at `/vagrant/infrastructure/git-subsplit`.
 * [PHP Git Hooks](https://github.com/intaro/php-git-hooks.git) cloned at `/vagrant/infrastructure/php-git-hooks`.
 
 ## How to install the VM?
@@ -41,6 +41,20 @@ $ cd Dev-machine/
 $ vagrant up
 ```
 
-## dotfiles
+### dotfiles
 This VM contains a set of predefined dotfiles (`.bash_aliases`, `.bashrc` and `.gitconfig`)
 that will be copied during initial startup. They are located at `./ansible/roles/tasks/templates/`.
+
+## PHP Git Hooks installation
+The Git pre-commit hooks for applying in the local repository of the PHP project.
+Open a ssh session with `vagrant ssh` and go to `/vagrant/infrastructure/php-git-hooks`.
+Then install its dependencies runing `composer install` command.
+Finally, you only need to make a symbolic link to the `pre-commit` file in your PHP project:
+
+```bash
+$ cd some/php/project/.git/hooks
+ln -s /vagrant/infrastructure/php-git-hooks/pre-commit pre-commit
+```
+
+**Note that in Windows system you'll get an error** bacause the host filesystem
+doesn't support for symbolic links. Check [Stackoverflow](http://stackoverflow.com/questions/17895256/creating-symbolic-link-protocol-error).
