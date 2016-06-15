@@ -1,2 +1,2 @@
 # Declare files that will always have LF line endings on checkout.
-ansible/roles/app/templates/ text eol=lf
+*.tpl text eol=lf
